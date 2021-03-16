@@ -35,6 +35,7 @@ export class HomepageComponent implements OnInit {
   specialties: any = [];
 
   ngOnInit(): void {
+     let content = [];
   }
 
   getSpecialties(){
