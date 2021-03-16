@@ -1,0 +1,43 @@
+<div class="header">
+    <h2>Consulta de</h2>
+    <mat-select [(value)]=selectedSpecialtyIndex placeholder="Selecione a especialidade">
+        <mat-option value="{{i}}" *ngFor="let specialty of specialties; let i = index">
+            {{specialty.nome}}
+        </mat-option>
+    </mat-select>
+    <button mat-raised-button [disabled]="!selectedSpecialtyIndex" (click)="showDoctorsBySpecialty(this.selectedSpecialtyIndex)" color="primary">
+        AGENDAR
+    </button>
+</div>
+<h3 *ngIf="doctorsList">
+    {{doctorsList.length}} {{specialties[selectedSpecialtyIndex].nome}} encontrados
+</h3>
+<div class="box" *ngIf="doctorsList">
+    <div class="tags" *ngFor="let doctor of doctorsList" class="tags">
+        <img class="profileImg" *ngIf="doctor.foto" src={{doctor.foto}}>
+        <div>
+            <p class="doctorName">
+                {{doctor.tratamento}}
+                {{doctor.nome}}
+            </p>
+            <p *ngIf="doctor.especialidades[0]" class="doctorInfo">{{doctor.especialidades[0].CBOS}}</p>
+            <button class="scheduleButton" (click)="scheduling(doctor)">AGENDAR</button>
+        </div>
+    </div>
+</div>
+<form *ngIf="isSchedulingSelected" [formGroup]="doctorForm">
+    <input formControlName = "name" placeholder="Nome completo">
+    <input formControlName = "birthdate" placeholder="Nascimento">
+    <input formControlName = "cpf" placeholder="CPF">
+    <mat-select formControlName = "source_id" placeholder="Como conheceu?">
+        <mat-option value="{{source.origem_id}}" *ngFor="let source of sourceList">
+            {{source.nome_origem}}
+        </mat-option>
+    </mat-select>
+    <button mat-raised-button [disabled]="!doctorForm.valid" (click)="createSchedule()">
+        SOLICITAR HORÁRIOS
+    </button>
+<div >
+
+</div>
+</form>

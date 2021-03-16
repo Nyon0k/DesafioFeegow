@@ -1,0 +1,64 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #3e87cf;
+}
+
+mat-select{
+    background-color: white ;
+    width: 30%;
+    margin: auto 3% auto 3%;
+}
+
+h2{
+    color: white;
+}
+
+.doctorName{
+    width: 5vh 6vw;
+}
+
+.doctorInfo{
+
+}
+
+.profileImg{
+    border-radius: 50%;
+    width: 5vw;
+    height: 5vw;
+    object-fit: cover;
+    object-position: center;
+}
+
+.tags{
+    background: white;
+    box-shadow: 5px 5px 20px grey;
+    border-radius: 20%;
+    padding: 1vh 3vw;
+    display: flex;
+    width: 20vw;
+    margin-right: 5vw;
+    margin-bottom: 5vw;
+}
+
+.tags:nth-child(2n){
+    
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.scheduleButton{
+    background: #6AC36F;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    padding: 1vh 3vw;
+}
